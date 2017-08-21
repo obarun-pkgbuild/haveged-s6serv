@@ -2,15 +2,15 @@
 
 pkgname=haveged-s6serv
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="haveged service for s6"
 arch=(x86_64)
 license=('beerware')
 depends=('haveged' 's6' 's6-rc' 's6-boot')
 conflicts=()
-install=haveged-s6serv.install
 source=('haveged.daemon.run.s6'
 		'haveged.log.run.s6'
+		'haveged.logd'
 		'LICENSE')
 md5sums=('a78f18a9e2fed9f884c860dfe3186960'
          'ca718399a225d9c8c12456e5536622c4'
@@ -23,6 +23,7 @@ package() {
 	
 	# log
 	install -Dm 0755 "$srcdir/haveged.log.run.s6" "$pkgdir/etc/s6-serv/available/classic/haveged/log/run"
+	install -Dm 0644 "$srcdir/haveged.logd" "$pkgdir/etc/s6-serv/log.d/haveged"
 	
 	install -Dm 0755 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/haveged-s6serv/LICENSE"
 }
