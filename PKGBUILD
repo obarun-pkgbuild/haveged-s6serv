@@ -14,6 +14,7 @@ source=('haveged.daemon.run.s6'
 		'LICENSE')
 md5sums=('a78f18a9e2fed9f884c860dfe3186960'
          'ca718399a225d9c8c12456e5536622c4'
+         'bb072ec1fb73112016f1db312556c93b'
          '191a37ae657aa17e37e75d0242865dba')
 
 package() {
